@@ -11,13 +11,14 @@ import com.saurav.it.repo.BookRepo;
 
 @Service
 public class BookService {
+	
 	@Autowired
 	BookRepo bookrepo;
 	
 	public List<Books>getAllBooks(){
 		
-		List<Books>books=new ArrayList<Books>();
-		bookrepo.findAll().forEach(books1->books.add(books1));
+		List<Books>books=new ArrayList<>();
+		bookrepo.findAll().forEach(books::add);
 		return books;
 	}
 	
@@ -32,8 +33,4 @@ public class BookService {
 	public void delete(int id) {
 		bookrepo.deleteById(id);
 		}
-	
-	 
-	
-	
 }
