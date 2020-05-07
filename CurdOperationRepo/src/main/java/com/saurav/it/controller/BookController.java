@@ -48,21 +48,15 @@ public class BookController {
 		return book;
 	}
 	
-	//--------------this is method implementation-----------------------------------
-	
-	@GetMapping("/book/{bookname}")
-	public Books getfindTop3ByBookName(@PathVariable("name")String name) {
-		bookservice.findTop3ByBookName("name");
-		return  getfindTop3ByBookName(name); 
-	}
-	
-	@GetMapping("/book/{bookname}")
- 	public Books getfindBookName(@PathVariable("name")String name) {
- 		 bookservice.findBookName(name);
- 		 return getfindBookName(name);
- 	}
-	 	 
-
+	//this is implemented method
+	@GetMapping("/book")
+	public List<Books>getfindBookName(){
+		 return bookservice.findBookName("");
+	 }
+	 	 @GetMapping("/book1")
+		public List<Books>getfindTop3Bookname(){
+			return bookservice.findTop3ByBookName("name");
+		}
 	
  		
  		
