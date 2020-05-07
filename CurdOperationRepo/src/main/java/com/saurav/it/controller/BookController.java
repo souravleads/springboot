@@ -18,7 +18,7 @@ public class BookController {
 	
 	@Autowired
 	BookService bookservice;
-	@GetMapping("/book")
+	@GetMapping("/book")//
 	public  List<Books>getAllBooks(){
 		
 		 
@@ -30,11 +30,11 @@ public class BookController {
 		return bookservice.getBooksById(bookid);
 	}
 
-	/*	@DeleteMapping("/book/{bookid}")
+	 	@DeleteMapping("/book/{bookid}")
  private void deleteBook(@PathVariable("bookid") int bookid)   
 	{  
 	bookservice.delete(bookid);  
-	}*/  
+	}   
 	
 	
 	@PostMapping("/books")
@@ -48,10 +48,32 @@ public class BookController {
 		return book;
 	}
 	
+	//--------------this is method implementation-----------------------------------
 	
+	@GetMapping("/book/{bookname}")
+	public Books getfindTop3ByBookName(@PathVariable("name")String name) {
+		bookservice.findTop3ByBookName("name");
+		return  getfindTop3ByBookName(name); 
+	}
 	
-	
-	
-	
+	@GetMapping("/book/{bookname}")
+ 	public Books getfindBookName(@PathVariable("name")String name) {
+ 		 bookservice.findBookName(name);
+ 		 return getfindBookName(name);
+ 	}
+	 	 
 
+	
+ 		
+ 		
+ 		@GetMapping("/book/{bookid}")
+	public Books getfindBookId(Integer id) {
+	return	bookservice.findBookId(id);
+	 
+	
+	
+	}
+	
+	
+ 
 }
