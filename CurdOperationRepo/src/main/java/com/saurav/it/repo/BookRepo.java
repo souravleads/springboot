@@ -8,4 +8,11 @@ import com.saurav.it.entity.Books;
 
 public interface BookRepo extends CrudRepository<Books,Integer> {
 	 
+	  public List<Books>findTop3ByBookName(String name);
+		 
+		public List<Books>findBookName(String name);
+		
+		public List<Books>findBookId(String id);
+		 
+	
 }
